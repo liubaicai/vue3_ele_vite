@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build:vite": "npm run type-check && vite build",
+    "build:vite": "pnpm run type-check && vite build",
     "build": "node build/build.js",
     "preview": "vite preview",
     "type-check": "vue-tsc --noEmit --composite false",
