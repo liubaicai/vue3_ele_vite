@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 declare type Lazy<T> = () => Promise<T>;
 
 declare class RouteItem {

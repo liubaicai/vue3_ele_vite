@@ -30,3 +30,7 @@ coverage
 auto-imports.d.ts
 components.d.ts
 stats.html
+
+# Lock files (we'll keep pnpm-lock.yaml in the repo)
+package-lock.json
+yarn.lock

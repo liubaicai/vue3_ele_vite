@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from "vue-router";
 import { nextTick, computed } from "vue";
-import zhCn from "element-plus/lib/locale/lang/zh-cn";
+import zhCn from "element-plus/es/locale/lang/zh-cn";
 import { useIndexStore } from "@/stores/index";
 import menuBuilder from "@/utils/menuBuilder";
 

@@ -1,6 +1,6 @@
 import fileDownload from "js-file-download";
 import { request, instance, message } from "@/api/core/request";
-import type { AxiosRequestHeaders, AxiosResponse } from "axios";
+import type { AxiosRequestHeaders, AxiosResponse, AxiosProgressEvent } from "axios";
 import type { RequestDataType, RequestParamsType } from "../models";
 
 function cryptoRandomString(e?: number) {
@@ -111,7 +111,12 @@ class Base {
       method: this.method.DELETE,
     });
 
-  upload = <T>(url: string, body: FormData, method?: HTTP_METHOD, action?: (progressEvent: ProgressEvent) => void) => {
+  upload = <T>(
+    url: string,
+    body: FormData,
+    method?: HTTP_METHOD,
+    action?: (progressEvent: AxiosProgressEvent) => void,
+  ) => {
     const boundary = `boundary=----WebKitFormBoundary${this.cryptoRandomString(16)}`;
     return this.request<T>({
       url: url,
@@ -130,7 +135,7 @@ class Base {
     params?: RequestParamsType,
     data?: RequestDataType,
     method?: HTTP_METHOD,
-    action?: (progressEvent: ProgressEvent) => void
+    action?: (progressEvent: AxiosProgressEvent) => void,
   ) => {
     return instance
       .request({
@@ -156,7 +161,7 @@ class Base {
             });
             respData = JSON.parse(respText as string); // <--- try to parse as json evantually
           }
-        } catch (err) {
+        } catch {
           // ignore
         }
         if (respData) {
