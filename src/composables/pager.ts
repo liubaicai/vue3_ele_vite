@@ -66,7 +66,7 @@ export default function () {
         pager.currentPage = page;
       }
       if (getData) getData(pager.currentPage);
-    }
+    },
   );
 
   onBeforeMount(() => {

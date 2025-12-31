@@ -40,6 +40,7 @@ import { useIndexStore } from "@/stores/index";
 import { logApi } from "@/api/index";
 
 import { type ValidateRules, validateEmpty } from "@/utils/validate";
+import { fmtd as $fmtd } from "@/plugins/index";
 
 const props = defineProps({
   msg: {
