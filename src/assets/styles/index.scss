@@ -1,4 +1,4 @@
 
-@import './default/index.scss';
-@import './light/index.scss';
-@import './dark/index.scss';
+@use './default/index.scss' as *;
+@use './light/index.scss' as *;
+@use './dark/index.scss' as *;
