@@ -84,7 +84,7 @@
             <el-table-column label="Status">
               <template #default="scope">
                 <el-tag :type="scope.row.active ? 'success' : 'info'">
-                  {{ scope.row.active ? 'Active' : 'Inactive' }}
+                  {{ scope.row.active ? "Active" : "Inactive" }}
                 </el-tag>
               </template>
             </el-table-column>
@@ -152,18 +152,17 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue";
 import { ElMessage, ElNotification } from "element-plus";
-import {
-  Promotion,
-  Link,
-  TrendCharts,
-  DataLine,
-  DocumentChecked,
-  Setting,
-  Sunny,
-  Moon,
-} from "@element-plus/icons-vue";
+import { Promotion, Link, TrendCharts, DataLine, DocumentChecked, Setting, Sunny, Moon } from "@element-plus/icons-vue";
 
-const featuresRef = ref<HTMLElement>();
+interface TableRow {
+  name: string;
+  role: string;
+  email: string;
+  active: boolean;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const featuresRef = ref<any>();
 const activeTab = ref("form");
 
 const features = [
@@ -234,11 +233,11 @@ const showFormData = () => {
   });
 };
 
-const handleEdit = (row: any) => {
+const handleEdit = (row: TableRow) => {
   ElMessage.info(`Editing ${row.name}`);
 };
 
-const handleDelete = (row: any) => {
+const handleDelete = (row: TableRow) => {
   ElMessage.warning(`Deleting ${row.name}`);
 };
 
@@ -246,7 +245,7 @@ const showNotification = (type: string) => {
   ElNotification({
     title: type.charAt(0).toUpperCase() + type.slice(1),
     message: `This is a ${type} notification`,
-    type: type as any,
+    type: type as "success" | "warning" | "error" | "info",
   });
 };
 
