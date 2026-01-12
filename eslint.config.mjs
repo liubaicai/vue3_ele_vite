@@ -28,6 +28,7 @@ export default [
         setInterval: "readonly",
         clearTimeout: "readonly",
         clearInterval: "readonly",
+        HTMLElement: "readonly",
         // Node globals
         process: "readonly",
         module: "readonly",

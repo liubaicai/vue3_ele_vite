@@ -12,7 +12,7 @@
           <el-space :size="20" wrap>
             <el-statistic title="Vue Version" :value="3.5" :precision="1" suffix=".26" />
             <el-statistic title="Vite Version" :value="7.3" :precision="1" suffix=".1" />
-            <el-statistic title="Element Plus" :value="2.13" :precision="2" suffix=".1" />
+            <el-statistic title="Element Plus" :value="2.13" :precision="1" suffix=".1" />
             <el-statistic title="TypeScript" :value="5.9" :precision="1" suffix=".3" />
           </el-space>
         </div>
@@ -161,8 +161,7 @@ interface TableRow {
   active: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const featuresRef = ref<any>();
+const featuresRef = ref<HTMLElement | null>(null);
 const activeTab = ref("form");
 
 const features = [
