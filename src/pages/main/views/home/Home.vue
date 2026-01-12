@@ -250,13 +250,17 @@ const showNotification = (type: string) => {
 };
 
 const onLightThemes = () => {
-  window.changeThemes("light");
-  ElMessage.success("Switched to light theme");
+  if (typeof window.changeThemes === "function") {
+    window.changeThemes("light");
+    ElMessage.success("Switched to light theme");
+  }
 };
 
 const onDarkThemes = () => {
-  window.changeThemes("dark");
-  ElMessage.success("Switched to dark theme");
+  if (typeof window.changeThemes === "function") {
+    window.changeThemes("dark");
+    ElMessage.success("Switched to dark theme");
+  }
 };
 </script>
 
