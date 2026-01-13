@@ -6,3 +6,9 @@ declare module "@vue/runtime-core" {
     $fmtd: (value?: string | number | Date | dayjs.Dayjs | null | undefined) => string;
   }
 }
+
+declare global {
+  interface Window {
+    changeThemes?: (name: string) => void;
+  }
+}
